@@ -10,6 +10,19 @@ import { Cep } from './interfaces/models-api';
 })
 export class AppComponent {
   name = 'Angular ' + VERSION.major;
+  data: any = {};
+
+  localStorageData: Cep = {
+    bairro: '',
+    cep: '',
+    complemento: '',
+    ddd: '',
+    gia: '',
+    localidade: '',
+    logradouro: '',
+    uf: '',
+  };
+
   formData: Cep = {
     bairro: '',
     cep: '',
@@ -21,8 +34,7 @@ export class AppComponent {
     uf: '',
   };
 
-  data: any = [];
-  // formData: any = {};
+  isFormValid: string;
 
   constructor(private listService: ListService, private storage: StorageMap) {
     this.fetchData();
@@ -30,10 +42,26 @@ export class AppComponent {
 
   onSubmit() {
     // Save in local storage
+
     this.storage.set('formData', this.formData).subscribe(() => {});
+    this.storage.get('formData').subscribe((data: Cep) => {
+      this.localStorageData = data;
+    });
 
     // View in console
     console.log(this.formData);
+    console.log('variável', this.localStorageData);
+  }
+
+  checkFormValidity() {
+    this.isFormValid =
+      this.formData.bairro &&
+      this.formData.cep &&
+      this.formData.complemento &&
+      this.formData.ddd &&
+      this.formData.localidade &&
+      this.formData.logradouro &&
+      this.formData.uf;
   }
 
   fetchData(): void {
@@ -42,6 +70,12 @@ export class AppComponent {
         (dataEntry, index) =>
           (this.data = Object.entries(dataEntry).map((item: any) => item))
       );
+      // Define os valores padrão com os dados da API
+      const currentStorage = this.storage
+        .get('formData')
+        .subscribe((data: Cep) => {
+          return data ? (this.formData = data) : (this.formData = remoteData);
+        });
     });
   }
 }

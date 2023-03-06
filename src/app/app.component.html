@@ -11,14 +11,22 @@
       <input
         matInput
         name="{{ item[0] }}"
-        value="{{ item[1] }}"
         [disabled]="item[0] === 'ibge' || item[0] === 'siafi'"
         [(ngModel)]="formData[item[0]]"
+        (ngModelChange)="checkFormValidity()"
+        [required]="item[0] !== 'gia' "
       />
     </mat-form-field>
 
     <div class="save">
-      <button type="submit" mat-raised-button color="primary">Salvar</button>
+      <button
+        [disabled]="!isFormValid"
+        type="submit"
+        mat-raised-button
+        color="primary"
+      >
+        Salvar
+      </button>
     </div>
 
     <!-- <mat-form-field appearance="fill">
