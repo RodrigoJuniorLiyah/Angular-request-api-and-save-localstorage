@@ -11,6 +11,35 @@ import { Cep } from './interfaces/models-api';
 export class AppComponent {
   name = 'Angular ' + VERSION.major;
   data: any = {};
+   states = [
+    { value: 'AC', viewValue: 'AC' },
+    { value: 'AL', viewValue: 'AL' },
+    { value: 'AP', viewValue: 'AP' },
+    { value: 'AM', viewValue: 'AM' },
+    { value: 'BA', viewValue: 'BA' },
+    { value: 'CE', viewValue: 'CE' },
+    { value: 'DF', viewValue: 'DF' },
+    { value: 'ES', viewValue: 'ES' },
+    { value: 'GO', viewValue: 'GO' },
+    { value: 'MA', viewValue: 'MA' },
+    { value: 'MT', viewValue: 'MT' },
+    { value: 'MS', viewValue: 'MS' },
+    { value: 'MG', viewValue: 'MG' },
+    { value: 'PA', viewValue: 'PA' },
+    { value: 'PB', viewValue: 'PB' },
+    { value: 'PR', viewValue: 'PR' },
+    { value: 'PE', viewValue: 'PE' },
+    { value: 'PI', viewValue: 'PI' },
+    { value: 'RJ', viewValue: 'RJ' },
+    { value: 'RN', viewValue: 'RN' },
+    { value: 'RS', viewValue: 'RS' },
+    { value: 'RO', viewValue: 'RO' },
+    { value: 'RR', viewValue: 'RR' },
+    { value: 'SC', viewValue: 'SC' },
+    { value: 'SP', viewValue: 'SP' },
+    { value: 'SE', viewValue: 'SE' },
+    { value: 'TO', viewValue: 'TO' }
+  ];
 
   localStorageData: Cep = {
     bairro: '',
@@ -70,7 +99,7 @@ export class AppComponent {
         (dataEntry, index) =>
           (this.data = Object.entries(dataEntry).map((item: any) => item))
       );
-      // Define os valores padrão com os dados da API
+      // Define default value with data of API
       const currentStorage = this.storage
         .get('formData')
         .subscribe((data: Cep) => {

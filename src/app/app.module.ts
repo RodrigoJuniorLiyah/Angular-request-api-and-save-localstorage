@@ -5,6 +5,7 @@ import { HttpClientModule } from '@angular/common/http';
 import { MatInputModule } from '@angular/material/input';
 import { MatButtonModule } from '@angular/material/button';
 import { NgxMaskModule } from 'ngx-mask';
+import { MatSelectModule } from '@angular/material/select';
 
 import { AppComponent } from './app.component';
 import { HelloComponent } from '../hello.component';
@@ -21,6 +22,7 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
     MatInputModule,
     MatButtonModule,
     NgxMaskModule.forRoot(),
+    MatSelectModule,
   ],
   declarations: [AppComponent, HelloComponent],
   bootstrap: [AppComponent],

@@ -8,19 +8,33 @@
   <form class="form" action="text" (ngSubmit)="onSubmit()">
     <mat-form-field *ngFor="let item of data" appearance="fill">
       <mat-label>{{ item[0] }}</mat-label>
-      <input
-        matInput
-        name="{{ item[0] }}"
-        [disabled]="item[0] === 'ibge' || item[0] === 'siafi'"
-        [(ngModel)]="formData[item[0]]"
-        (ngModelChange)="checkFormValidity()"
-        [required]="item[0] !== 'gia'"
-        [mask]="
-          (item[0] === 'cep' && '00000-000') ||
-          (item[0] === 'complemento' && '0.000')
-        "
-        [maxlength]="item[0] === 'ddd' && 3"
-      />
+      <ng-container *ngIf="item[0] !== 'uf'">
+        <input
+          matInput
+          name="{{ item[0] }}"
+          [disabled]="item[0] === 'ibge' || item[0] === 'siafi'"
+          [(ngModel)]="formData[item[0]]"
+          (ngModelChange)="checkFormValidity()"
+          [required]="item[0] !== 'gia'"
+          [mask]="
+            (item[0] === 'cep' && '00000-000') ||
+            (item[0] === 'complemento' && '0.000')
+          "
+          [maxlength]="item[0] === 'ddd' && 3"
+          [type]="item[0] === 'ddd' && 'tel'"
+        />
+      </ng-container>
+      <ng-container *ngIf="item[0] === 'uf'">
+        <mat-select
+          required
+          name="{{ item[0] }}"
+          [(ngModel)]="formData[item[0]]"
+        >
+          <mat-option *ngFor="let state of states" [value]="state.viewValue">{{
+            state.viewValue
+          }}</mat-option>
+        </mat-select>
+      </ng-container>
     </mat-form-field>
 
     <div class="save">
