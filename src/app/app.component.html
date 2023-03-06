@@ -14,7 +14,12 @@
         [disabled]="item[0] === 'ibge' || item[0] === 'siafi'"
         [(ngModel)]="formData[item[0]]"
         (ngModelChange)="checkFormValidity()"
-        [required]="item[0] !== 'gia' "
+        [required]="item[0] !== 'gia'"
+        [mask]="
+          (item[0] === 'cep' && '00000-000') ||
+          (item[0] === 'complemento' && '0.000')
+        "
+        [maxlength]="item[0] === 'ddd' && 3"
       />
     </mat-form-field>
 
