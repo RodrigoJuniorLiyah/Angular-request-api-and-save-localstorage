@@ -10,7 +10,7 @@ import { Cep } from './interfaces/models-api';
 })
 export class AppComponent {
   name = 'Angular ' + VERSION.major;
-  data: Cep = {
+  formData: Cep = {
     bairro: '',
     cep: '',
     complemento: '',
@@ -21,10 +21,11 @@ export class AppComponent {
     uf: '',
   };
 
-  teste = [];
+  data: any = [];
+  // formData: any = {};
 
   constructor(private listService: ListService, private storage: StorageMap) {
-    this.getApi();
+    this.fetchData();
     this.handleSave();
   }
 
@@ -34,11 +35,21 @@ export class AppComponent {
     this.storage.set('user', user).subscribe(() => {});
   }
 
-  getApi(): void {
-    this.listService.getAll().subscribe((objectJson) => {
-      this.data = objectJson;
-      [this.data].map(
-        (item, index) => (this.teste = Object.entries(item).map((e) => e))
+  onSubmit() {
+    // Salvar no local storage
+    /*  this.localStorage.setItem('formData', JSON.stringify(this.formData)).subscribe(() => {
+      console.log('Dados do formulário salvos com sucesso no LocalStorage');
+    }); */
+
+    // Mostrar no console
+    console.log(this.formData);
+  }
+
+  fetchData(): void {
+    this.listService.getAll().subscribe((remoteData) => {
+      [remoteData].map(
+        (dataEntry, index) =>
+          (this.data = Object.entries(dataEntry).map((item: any) => item))
       );
     });
   }

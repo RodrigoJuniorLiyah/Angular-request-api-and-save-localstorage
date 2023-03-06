@@ -5,14 +5,15 @@
 <div>Escreva seu código HTML abaixo:</div>
 
 <div class="container-form">
-  <form class="form" action="text">
-    <mat-form-field *ngFor="let item of teste" appearance="fill">
+  <form class="form" action="text" (ngSubmit)="onSubmit()">
+    <mat-form-field *ngFor="let item of data" appearance="fill">
       <mat-label>{{ item[0] }}</mat-label>
       <input
         matInput
-        name="complement"
+        name="{{ item[0] }}"
         value="{{ item[1] }}"
         [disabled]="item[0] === 'ibge' || item[0] === 'siafi'"
+        [(ngModel)]="formData[item[0]]"
       />
     </mat-form-field>
 
