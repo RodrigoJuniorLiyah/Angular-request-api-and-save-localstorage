@@ -1,8 +1,7 @@
-import { LocalStorage } from '@ngx-pwa/local-storage';
+import { StorageMap } from '@ngx-pwa/local-storage';
 import { Component, VERSION } from '@angular/core';
 import { ListService } from './app.service';
 import { Cep } from './interfaces/models-api';
-
 
 @Component({
   selector: 'my-app',
@@ -24,16 +23,22 @@ export class AppComponent {
 
   teste = [];
 
-  constructor(private listService: ListService) {
+  constructor(private listService: ListService, private storage: StorageMap) {
     this.getApi();
+    this.handleSave();
+  }
+
+  handleSave() {
+    let user = { firstName: 'Henri', lastName: 'Bergson' };
+
+    this.storage.set('user', user).subscribe(() => {});
   }
 
   getApi(): void {
     this.listService.getAll().subscribe((objectJson) => {
       this.data = objectJson;
       [this.data].map(
-        (item, index) =>
-          (this.teste = Object.entries(item).map((e) => e))
+        (item, index) => (this.teste = Object.entries(item).map((e) => e))
       );
     });
   }
