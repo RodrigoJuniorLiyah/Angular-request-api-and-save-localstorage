@@ -86,15 +86,15 @@ export class AppComponent {
     console.log('variável', this.localStorageData);
 
     //Notifier
-    alert('Formulário salvo com sucesso! 🎉');
+    this.isFormValid && alert('Formulário salvo com sucesso! 🎉');
   }
 
   checkFormValidity() {
     this.isFormValid =
       this.formData.bairro &&
-      this.formData.cep &&
+      this.formData.cep.length > 7 &&
       this.formData.complemento &&
-      this.formData.ddd &&
+      this.formData.ddd.length > 1 &&
       this.formData.localidade &&
       this.formData.logradouro &&
       this.formData.uf;
