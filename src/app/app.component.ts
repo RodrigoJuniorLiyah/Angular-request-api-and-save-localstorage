@@ -15,7 +15,7 @@ interface States {
 })
 export class AppComponent {
   name = 'Angular ' + VERSION.major;
-  data: any = {};
+  data: Record<string, string>[] = [];
   states: States[] = [
     { value: 'AC', viewValue: 'AC' },
     { value: 'AL', viewValue: 'AL' },
@@ -85,7 +85,7 @@ export class AppComponent {
     console.log(this.formData);
     console.log('variável', this.localStorageData);
 
-    //Notifyer
+    //Notifier
     alert('Formulário salvo com sucesso! 🎉');
   }
 
@@ -104,14 +104,14 @@ export class AppComponent {
     this.listService.getAll().subscribe((remoteData) => {
       [remoteData].map(
         (dataEntry, index) =>
-          (this.data = Object.entries(dataEntry).map((item: any) => item))
+          (this.data = Object.entries(dataEntry).map(
+            (item: Record<string, any>) => item
+          ))
       );
       // Define default value with data of API
-      const currentStorage = this.storage
-        .get('formData')
-        .subscribe((data: Cep) => {
-          return data ? (this.formData = data) : (this.formData = remoteData);
-        });
+      this.storage.get('formData').subscribe((data: Cep) => {
+        return data ? (this.formData = data) : (this.formData = remoteData);
+      });
     });
   }
 }
