@@ -2,7 +2,6 @@ import { StorageMap } from '@ngx-pwa/local-storage';
 import { Component, VERSION } from '@angular/core';
 import { ListService } from './app.service';
 import { Cep } from './interfaces/models-api';
-import { ToastrService } from 'ngx-toastr';
 
 interface States {
   value: string;
@@ -71,13 +70,8 @@ export class AppComponent {
 
   isFormValid: string;
 
-  constructor(
-    private listService: ListService,
-    private storage: StorageMap,
-    private toastr: ToastrService
-  ) {
+  constructor(private listService: ListService, private storage: StorageMap) {
     this.fetchData();
-    this.showSuccess();
   }
 
   onSubmit() {
@@ -92,7 +86,7 @@ export class AppComponent {
     console.log('variável', this.localStorageData);
 
     //Notifyer
-    alert('Salvo');
+    alert('Formulário salvo com sucesso! 🎉');
   }
 
   checkFormValidity() {
@@ -118,13 +112,6 @@ export class AppComponent {
         .subscribe((data: Cep) => {
           return data ? (this.formData = data) : (this.formData = remoteData);
         });
-    });
-  }
-
-  showSuccess() {
-    this.toastr.success('Formulário salvo com sucesso! 🎉🎉🎉', 'Sucesso!', {
-      timeOut: 3000,
-      progressBar: true,
     });
   }
 }
