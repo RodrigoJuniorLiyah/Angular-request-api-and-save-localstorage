@@ -2,6 +2,12 @@ import { StorageMap } from '@ngx-pwa/local-storage';
 import { Component, VERSION } from '@angular/core';
 import { ListService } from './app.service';
 import { Cep } from './interfaces/models-api';
+import { ToastrService } from 'ngx-toastr';
+
+interface States {
+  value: string;
+  viewValue: string;
+}
 
 @Component({
   selector: 'my-app',
@@ -11,7 +17,7 @@ import { Cep } from './interfaces/models-api';
 export class AppComponent {
   name = 'Angular ' + VERSION.major;
   data: any = {};
-   states = [
+  states: States[] = [
     { value: 'AC', viewValue: 'AC' },
     { value: 'AL', viewValue: 'AL' },
     { value: 'AP', viewValue: 'AP' },
@@ -38,7 +44,7 @@ export class AppComponent {
     { value: 'SC', viewValue: 'SC' },
     { value: 'SP', viewValue: 'SP' },
     { value: 'SE', viewValue: 'SE' },
-    { value: 'TO', viewValue: 'TO' }
+    { value: 'TO', viewValue: 'TO' },
   ];
 
   localStorageData: Cep = {
@@ -65,13 +71,17 @@ export class AppComponent {
 
   isFormValid: string;
 
-  constructor(private listService: ListService, private storage: StorageMap) {
+  constructor(
+    private listService: ListService,
+    private storage: StorageMap,
+    private toastr: ToastrService
+  ) {
     this.fetchData();
+    this.showSuccess();
   }
 
   onSubmit() {
     // Save in local storage
-
     this.storage.set('formData', this.formData).subscribe(() => {});
     this.storage.get('formData').subscribe((data: Cep) => {
       this.localStorageData = data;
@@ -80,6 +90,9 @@ export class AppComponent {
     // View in console
     console.log(this.formData);
     console.log('variável', this.localStorageData);
+
+    //Notifyer
+    alert('Salvo');
   }
 
   checkFormValidity() {
@@ -105,6 +118,13 @@ export class AppComponent {
         .subscribe((data: Cep) => {
           return data ? (this.formData = data) : (this.formData = remoteData);
         });
+    });
+  }
+
+  showSuccess() {
+    this.toastr.success('Formulário salvo com sucesso! 🎉🎉🎉', 'Sucesso!', {
+      timeOut: 3000,
+      progressBar: true,
     });
   }
 }
