@@ -1,0 +1,56 @@
+<h1>Teste técnico BDMG</h1>
+<hello></hello>
+<br />
+
+<div>Escreva seu código HTML abaixo:</div>
+
+<div class="container-form">
+  <form class="form" action="text">
+    <mat-form-field *ngFor="let item of teste" appearance="fill">
+      <mat-label>{{ item[0] }}</mat-label>
+      <input
+        matInput
+        name="complement"
+        value="{{ item[1] }}"
+        [disabled]="item[0] === 'ibge' || item[0] === 'siafi'"
+      />
+    </mat-form-field>
+
+    <div class="save">
+      <button type="submit" mat-raised-button color="primary">Salvar</button>
+    </div>
+
+    <!-- <mat-form-field appearance="fill">
+      <mat-label>Bairro</mat-label>
+      <input matInput name="neighborhood" value="{{ data.bairro }}" />
+    </mat-form-field>
+    <mat-form-field appearance="fill">
+      <mat-label>cep</mat-label>
+      <input matInput name="zip-code" value="{{ data.cep }}" />
+    </mat-form-field>
+    <mat-form-field appearance="fill">
+      <mat-label>complemento</mat-label>
+      <input matInput name="complement" value="{{ data.complemento }}" />
+    </mat-form-field>
+    <mat-form-field appearance="fill">
+      <mat-label>ddd</mat-label>
+      <input matInput name="ddd" value="{{ data.ddd }}" />
+    </mat-form-field>
+    <mat-form-field appearance="fill">
+      <mat-label>gia</mat-label>
+      <input matInput name="gia" value="{{ data.gia }}" />
+    </mat-form-field>
+    <mat-form-field appearance="fill">
+      <mat-label>localidade</mat-label>
+      <input matInput name="city" value="{{ data.localidade }}" />
+    </mat-form-field>
+    <mat-form-field appearance="fill">
+      <mat-label>logradouro</mat-label>
+      <input matInput name="address" value="{{ data.logradouro }}" />
+    </mat-form-field>
+    <mat-form-field appearance="fill">
+      <mat-label>uf</mat-label>
+      <input matInput name="uf" value="{{ data.uf }}" />
+    </mat-form-field> -->
+  </form>
+</div>

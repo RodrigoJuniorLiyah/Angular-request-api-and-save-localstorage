@@ -1,0 +1,30 @@
+p {
+  font-family: Lato;
+}
+
+.container-form {
+  flex: 1;
+  width: 100%;
+
+  display: flex;
+  justify-content: center;
+}
+
+.form {
+  width: 50%;
+
+  margin-top: 30px;
+}
+
+.form mat-form-field {
+  width: 100%;
+}
+
+.save {
+  display: flex;
+  justify-content: flex-end;
+}
+
+.save button {
+  width: 100px;
+}
