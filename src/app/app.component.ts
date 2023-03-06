@@ -26,22 +26,13 @@ export class AppComponent {
 
   constructor(private listService: ListService, private storage: StorageMap) {
     this.fetchData();
-    this.handleSave();
-  }
-
-  handleSave() {
-    let user = { firstName: 'Henri', lastName: 'Bergson' };
-
-    this.storage.set('user', user).subscribe(() => {});
   }
 
   onSubmit() {
-    // Salvar no local storage
-    /*  this.localStorage.setItem('formData', JSON.stringify(this.formData)).subscribe(() => {
-      console.log('Dados do formulário salvos com sucesso no LocalStorage');
-    }); */
+    // Save in local storage
+    this.storage.set('formData', this.formData).subscribe(() => {});
 
-    // Mostrar no console
+    // View in console
     console.log(this.formData);
   }
 
