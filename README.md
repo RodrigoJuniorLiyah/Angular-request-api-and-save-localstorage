@@ -52,7 +52,7 @@ Este projeto em Angular inclui várias funcionalidades importantes que podem ser
 ### Images
 
 <p align="center" style="display: flex; align-items: flex-start; justify-content: center;flex-direction: column">
-<img alt="layout" title="layout" src="./assets/printscreen/layout.png" height="400">
+<img alt="layout" title="layout" src="./assets/printscreen/Visual.png" height="400">
 <img alt="validation" title="validation" src="./assets/printscreen/validation.png" height="400">
 <img alt="localstorage" title="localstorage" src="./assets/printscreen/localstorage.png" height="400">
 </p>
