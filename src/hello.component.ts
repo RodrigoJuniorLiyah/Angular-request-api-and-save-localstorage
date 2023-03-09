@@ -8,15 +8,12 @@ import { Component, Input } from '@angular/core';
     (closed)="panelOpenState = false"
   >
     <mat-expansion-panel-header>
-      <mat-panel-title>  Para começar leia atentamente as instruções a seguir: </mat-panel-title>
+      <mat-panel-title>  Missão do projeto: </mat-panel-title>
       <mat-panel-description>
        Leia-me
       </mat-panel-description>
     </mat-expansion-panel-header>
     <ol>
-    <li>
-    Primeiramente, dê fork nesse projeto para sua conta git hub.
-  </li>
     <li>
       Veja a estrutura de pastas e utilize os arquivos da pasta app.
     </li>
@@ -32,12 +29,11 @@ import { Component, Input } from '@angular/core';
     <li>Encontre uma solução de máscara para o campo 'complemento', seguindo o padrão de milhar: 0.000;</li>
     <li>Construa o método/função que salve as alterações no localstorage;</li>
     <li>Utilize o Angular Material para facilitar o desenvolvimento: https://material.angular.io/</li>
-    <li>Caso necessite, guie-se pela documentação do Angular: https://angular.io/</li>
 
   
   </ol>
   
-  <div>Dúvidas? Entre em contato comigo https://www.linkedin.com/in/klauber-freitas/ </div>
+  <div>Gostou do projeto? Entre em contato comigo: https://www.linkedin.com/in/rodrigo-cabral-dev/ </div>
 
   </mat-expansion-panel>
 </mat-accordion>
