@@ -1,6 +1,6 @@
 <p align="center">
   <img alt="GitHub language count"
-  src="https://img.shields.io/badge/languages-2-green">
+  src="https://img.shields.io/badge/languages-1-green">
 
   <a href="https://twitter.com/Legend_Attack">
     <img alt="Siga no Twitter" src="https://img.shields.io/twitter/url?style=social&url=https%3A%2F%2Ftwitter.com%2FLegend_Attack">
