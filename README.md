@@ -54,7 +54,7 @@ Este projeto em Angular inclui várias funcionalidades importantes que podem ser
 <p align="center" style="display: flex; align-items: flex-start; justify-content: center;flex-direction: column">
 <img alt="home" title="home" src="./assets/printscreen/layout.png" height="400">
 <img alt="guia" title="guia inicial" src="./assets/printscreen/validation.png" height="400">
-<img alt="Header" title="Header" src="./assets/printscreen/projetoStarWars/localstorage.png" height="400">
+<img alt="Header" title="Header" src="./assets/printscreen/localstorage.png" height="400">
 </p>
 
 ---
