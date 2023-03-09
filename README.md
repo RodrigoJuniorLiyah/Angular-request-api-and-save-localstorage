@@ -7,12 +7,12 @@
   </a>
 
   <img alt="License" src="https://img.shields.io/badge/license-MIT-brightgreen">
-   <a href="https://github.com/RodrigoJuniorLiyah/Happy---Rocketseat/stargazers">
-    <img alt="Stargazers" src="https://img.shields.io/github/stars/RodrigoJuniorLiyah/Happy---Rocketseat?style=social">
+   <a href="https://github.com/RodrigoJuniorLiyah/Angular-request-api-and-save-localstorage/stargazers">
+    <img alt="Stargazers" src="https://img.shields.io/github/stars/RodrigoJuniorLiyah/Angular-request-api-and-save-localstorage?style=social">
   </a>
 
-  <a href="https://github.com/RodrigoJuniorLiyah/Happy---Rocketseat/commits/master">
-    <img alt="GitHub last commit" src="https://img.shields.io/github/last-commit/RodrigoJuniorLiyah/Star-Wars">
+  <a href="https://github.com/RodrigoJuniorLiyah/Angular-request-api-and-save-localstorage/commits/main">
+    <img alt="GitHub last commit" src="https://img.shields.io/github/last-commit/RodrigoJuniorLiyah/Angular-request-api-and-save-localstorage">
   </a>
 </p>
 
@@ -52,9 +52,9 @@ Este projeto em Angular inclui várias funcionalidades importantes que podem ser
 ### Images
 
 <p align="center" style="display: flex; align-items: flex-start; justify-content: center;flex-direction: column">
-<img alt="home" title="home" src="./assets/printscreen/layout.png" height="400">
-<img alt="guia" title="guia inicial" src="./assets/printscreen/validation.png" height="400">
-<img alt="Header" title="Header" src="./assets/printscreen/localstorage.png" height="400">
+<img alt="layout" title="layout" src="./assets/printscreen/layout.png" height="400">
+<img alt="validation" title="validation" src="./assets/printscreen/validation.png" height="400">
+<img alt="localstorage" title="localstorage" src="./assets/printscreen/localstorage.png" height="400">
 </p>
 
 ---
